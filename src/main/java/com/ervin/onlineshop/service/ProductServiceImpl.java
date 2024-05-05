@@ -8,6 +8,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
+import java.util.Optional;
 import java.util.stream.Collectors;
 
 @Service
@@ -32,8 +33,20 @@ public class ProductServiceImpl implements ProductService {
 
     @Override
     public ProductDTO getProductById(Long id) {
-        return null;
+        // Rechercher le produit par son ID dans la base de données
+        Optional<Product> optionalProduct = productRepository.findById(id);
+
+        if (optionalProduct.isEmpty()) {
+            // Gérer le cas où le produit n'est pas trouvé
+            // Par exemple, vous pourriez lever une exception ou renvoyer null
+            return null;
+        }
+
+        // Mapper le produit en ProductDTO
+        Product product = optionalProduct.get();
+        return modelMapper.map(product, ProductDTO.class);
     }
+
 
     @Override
     public ProductDTO createProduct(ProductDTO productDTO) {
@@ -49,12 +62,33 @@ public class ProductServiceImpl implements ProductService {
 
     @Override
     public ProductDTO updateProduct(Long id, ProductDTO productDTO) {
-        return null;
+        // Vérifier si le produit existe
+        Optional<Product> optionalProduct = productRepository.findById(id);
+        if (optionalProduct.isEmpty()) {
+            // Gérer le cas où le produit n'existe pas
+            // Lever une exception ou renvoyer une réponse appropriée ici
+            return null; // Ou lancez une exception NotFound
+        }
+
+        // Récupérer le produit existant de la base de données
+        Product existingProduct = optionalProduct.get();
+
+        // Mettre à jour les propriétés du produit existant avec les données du DTO
+        existingProduct.setName(productDTO.getName());
+        existingProduct.setDescription(productDTO.getDescription());
+        existingProduct.setPrice(productDTO.getPrice());
+        existingProduct.setQuantity(productDTO.getQuantity());
+
+        // Enregistrer le produit mis à jour dans la base de données
+        Product updatedProduct = productRepository.save(existingProduct);
+
+        // Mapper et renvoyer le produit mis à jour en DTO
+        return modelMapper.map(updatedProduct, ProductDTO.class);
     }
 
     @Override
     public void deleteProduct(Long id) {
-
+        productRepository.deleteById(id);
     }
 
     // Autres méthodes à implémenter...
@@ -65,6 +99,7 @@ public class ProductServiceImpl implements ProductService {
         dto.setName(product.getName());
         dto.setDescription(product.getDescription());
         dto.setPrice(product.getPrice());
+        dto.setQuantity(product.getQuantity());
         return dto;
     }
 }

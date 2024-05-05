@@ -6,6 +6,8 @@ public class ProductDTO {
     private String description;
     private double price;
 
+    private int quantity;
+
     // Getters and setters
 
 
@@ -39,5 +41,13 @@ public class ProductDTO {
 
     public void setPrice(double price) {
         this.price = price;
+    }
+
+    public int getQuantity() {
+        return quantity;
+    }
+
+    public void setQuantity(int quantity) {
+        this.quantity = quantity;
     }
 }

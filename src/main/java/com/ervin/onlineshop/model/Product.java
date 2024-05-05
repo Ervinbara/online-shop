@@ -22,7 +22,7 @@ public class Product {
     @Column(nullable = false)
     private int stockQuantity;
 
-    @Column(nullable = false, columnDefinition = "int default 0")
+    @Column(nullable = false)
     private int quantity;
     // Getters and setters
 
