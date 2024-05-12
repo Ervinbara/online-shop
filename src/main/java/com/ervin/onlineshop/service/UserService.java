@@ -1,5 +1,6 @@
 package com.ervin.onlineshop.service;
 
+import com.ervin.onlineshop.model.User;
 import com.ervin.onlineshop.model.dto.UserDTO;
 
 import java.util.List;
@@ -15,4 +16,8 @@ public interface UserService {
     UserDTO updateUser(Long id, UserDTO userDTO);
 
     void deleteUser(Long id);
+
+    User findByEmail(String email);
+
+    boolean authenticate(String email, String password);
 }

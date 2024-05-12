@@ -3,6 +3,9 @@ package com.ervin.onlineshop.controller;
 import com.ervin.onlineshop.model.User;
 import com.ervin.onlineshop.model.dto.UserDTO;
 import com.ervin.onlineshop.service.UserService;
+import jakarta.servlet.http.HttpServletRequest;
+import jakarta.servlet.http.HttpSession;
+import org.modelmapper.ModelMapper;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -50,4 +53,5 @@ public class UserController {
         userService.deleteUser(id);
         return new ResponseEntity<>(HttpStatus.NO_CONTENT);
     }
+
 }

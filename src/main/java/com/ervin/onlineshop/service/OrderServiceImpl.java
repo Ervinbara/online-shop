@@ -7,6 +7,7 @@ import com.ervin.onlineshop.model.dto.OrderDTO;
 import com.ervin.onlineshop.model.dto.OrderItemDTO;
 import com.ervin.onlineshop.repository.OrderItemRepository;
 import com.ervin.onlineshop.repository.OrderRepository;
+import jakarta.transaction.Transactional;
 import org.modelmapper.ModelMapper;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -31,6 +32,7 @@ public class OrderServiceImpl implements OrderService {
     }
 
     @Override
+    @Transactional
     public OrderDTO createOrder(OrderDTO orderDTO) {
         // Mapper l'OrderDTO en une entité Order
         Order order = modelMapper.map(orderDTO, Order.class);
@@ -57,10 +59,14 @@ public class OrderServiceImpl implements OrderService {
             orderItem.setOrder(savedOrder); // Utilisez la commande enregistrée
             orderItemRepository.save(orderItem); // Enregistrez l'OrderItem en base de données
         }
+        orderItemRepository.deleteByOrderIdIsNull();
 
         // Mapper et renvoyer l'objet Order persisté en DTO
         return modelMapper.map(savedOrder, OrderDTO.class);
     }
+
+
+
 
 
 

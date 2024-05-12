@@ -3,7 +3,6 @@ package com.ervin.onlineshop.service;
 import com.ervin.onlineshop.model.User;
 import com.ervin.onlineshop.model.dto.UserDTO;
 import com.ervin.onlineshop.repository.UserRepository;
-import com.ervin.onlineshop.service.UserService;
 import org.modelmapper.ModelMapper;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -11,17 +10,21 @@ import org.springframework.stereotype.Service;
 import java.util.List;
 import java.util.Optional;
 import java.util.stream.Collectors;
+// import org.springframework.security.crypto.password.PasswordEncoder;
 
 @Service
 public class UserServiceImpl implements UserService {
 
     private final UserRepository userRepository;
     private final ModelMapper modelMapper;
+    // private final PasswordEncoder passwordEncoder;
+
 
     @Autowired
     public UserServiceImpl(UserRepository userRepository, ModelMapper modelMapper) {
         this.userRepository = userRepository;
         this.modelMapper = modelMapper;
+        //this.passwordEncoder = passwordEncoder;
     }
 
     @Override
@@ -40,6 +43,8 @@ public class UserServiceImpl implements UserService {
 
     @Override
     public UserDTO createUser(UserDTO userDTO) {
+        //String hashedPassword = passwordEncoder.encode(userDTO.getPassword());
+        //userDTO.setPassword(hashedPassword);
         User user = modelMapper.map(userDTO, User.class);
         User savedUser = userRepository.save(user);
         return modelMapper.map(savedUser, UserDTO.class);
@@ -72,4 +77,26 @@ public class UserServiceImpl implements UserService {
     public void deleteUser(Long id) {
         userRepository.deleteById(id);
     }
+
+    @Override
+    public User findByEmail(String email) {
+        return userRepository.findByEmail(email);
+    }
+
+    @Override
+    public boolean authenticate(String email, String password) {
+        // Récupération de l'utilisateur depuis la base de données par son email
+        User user = userRepository.findByEmail(email);
+
+        // Vérification si l'utilisateur existe et si le mot de passe est correct
+        /**
+        if (user != null && passwordEncoder.matches(password, user.getPassword())) {
+            return true; // Le mot de passe est correct
+        } else {
+            return false; // Le mot de passe est incorrect ou l'utilisateur n'existe pas
+        }
+         **/
+        return true;
+    }
+
 }

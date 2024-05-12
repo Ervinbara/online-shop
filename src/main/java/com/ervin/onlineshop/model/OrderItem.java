@@ -11,7 +11,7 @@ public class OrderItem {
     private Long id;
 
     @ManyToOne
-    @JoinColumn(name = "order_id", nullable = false)
+    @JoinColumn(name = "order_id", nullable = true)
     private Order order;
 
     @ManyToOne
@@ -55,4 +55,10 @@ public class OrderItem {
     public void setQuantity(int quantity) {
         this.quantity = quantity;
     }
+
+
+    public void setOrderId(Long orderId) {
+        this.order.setId(orderId);
+    }
+
 }
