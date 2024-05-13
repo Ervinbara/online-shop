@@ -11,6 +11,7 @@ import java.util.List;
 import static org.springframework.http.MediaType.APPLICATION_JSON_VALUE;
 
 @RestController
+@CrossOrigin(origins = "http://localhost:4200")
 @RequestMapping(path = "/products")
 public class ProductController {
 
