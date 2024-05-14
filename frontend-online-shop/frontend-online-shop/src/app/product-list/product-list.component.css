@@ -1,0 +1,7 @@
+.product-image {
+  transition: transform 0.3s ease;
+}
+
+.product-image:hover {
+  transform: scale(1.1); /* Agrandir l'image de 10% */
+}
