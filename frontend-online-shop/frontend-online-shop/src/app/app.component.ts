@@ -1,6 +1,8 @@
 import { Component } from '@angular/core';
 import {RouterOutlet} from "@angular/router";
 import {AppModule} from "./app.module";
+import {MatIcon} from "@angular/material/icon";
+import {Carousel02Component} from "./carousel-a/carousel-a.component";
 
 @Component({
   selector: 'app-root',
@@ -8,7 +10,9 @@ import {AppModule} from "./app.module";
   styleUrls: ['./app.component.css'],
   imports: [
     RouterOutlet,
-    AppModule
+    AppModule,
+    MatIcon,
+    Carousel02Component,
   ],
   standalone: true // Ajoutez cette ligne pour définir le composant comme autonome
 

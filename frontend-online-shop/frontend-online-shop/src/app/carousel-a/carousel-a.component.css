@@ -1,0 +1,13 @@
+c-carousel {
+  margin: 0 auto;
+}
+
+c-carousel-inner {
+  height: 505px; /* Ajustez la hauteur selon vos besoins */
+}
+
+c-carousel-item img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}

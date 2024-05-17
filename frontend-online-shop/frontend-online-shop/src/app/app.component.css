@@ -1,0 +1,53 @@
+/* Styles pour le header */
+.header {
+  text-align: center;
+}
+
+.header-top {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  background-color: black;
+  height: 45px;
+}
+
+.left-content, .right-content {
+  display: flex;
+  align-items: center;
+  color : aliceblue;
+}
+
+.login-link {
+  margin-right: 20px; /* Espacement entre les liens */
+}
+
+/*Partie inférieure du header*/
+/* Styles pour le header */
+.header {
+  text-align: center;
+}
+
+.header-bottom {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.logo {
+  flex: 1; /* Pour occuper tout l'espace disponible */
+}
+
+.search-bar {
+  flex: 1; /* Pour occuper tout l'espace disponible */
+  text-align: center; /* Aligner le contenu de la barre de recherche au centre */
+}
+
+.user-actions {
+  flex: 1; /* Pour occuper tout l'espace disponible */
+}
+
+.header-bottom {
+  height: 100px; /* Fixe la hauteur du header-bottom à 100 pixels */
+}
+
+
