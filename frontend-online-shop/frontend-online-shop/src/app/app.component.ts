@@ -1,8 +1,9 @@
-import { Component } from '@angular/core';
-import {RouterOutlet} from "@angular/router";
+import { Component, OnInit } from '@angular/core';
+import { Router, NavigationEnd } from '@angular/router';
+import { RouterOutlet } from '@angular/router';
+import { MatIcon } from '@angular/material/icon';
+import { Carousel02Component } from './carousel-a/carousel-a.component';
 import {AppModule} from "./app.module";
-import {MatIcon} from "@angular/material/icon";
-import {Carousel02Component} from "./carousel-a/carousel-a.component";
 
 @Component({
   selector: 'app-root',
@@ -15,8 +16,12 @@ import {Carousel02Component} from "./carousel-a/carousel-a.component";
     Carousel02Component,
   ],
   standalone: true // Ajoutez cette ligne pour définir le composant comme autonome
-
 })
-export class AppComponent {
+export class AppComponent implements OnInit {
   title = 'frontend-online-shop';
+  constructor(private router: Router) {}
+
+  ngOnInit(): void {
+  }
+
 }

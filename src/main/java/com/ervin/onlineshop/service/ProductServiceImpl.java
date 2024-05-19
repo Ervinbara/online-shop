@@ -32,6 +32,16 @@ public class ProductServiceImpl implements ProductService {
     }
 
     @Override
+    public List<ProductDTO> getLastProducts() {
+        // Récupérer les 5 derniers produits par ordre décroissant de leur date de création
+        List<Product> products = productRepository.findTop5ByOrderByCreatedAtDesc();
+        // Convertir les produits en DTO
+        return products.stream()
+                .map(this::convertToDTO)
+                .collect(Collectors.toList());
+    }
+
+    @Override
     public ProductDTO getProductById(Long id) {
         // Rechercher le produit par son ID dans la base de données
         Optional<Product> optionalProduct = productRepository.findById(id);

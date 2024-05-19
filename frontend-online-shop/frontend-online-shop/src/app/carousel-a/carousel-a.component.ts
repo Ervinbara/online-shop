@@ -13,7 +13,7 @@ import {
   selector: 'app-carousel-a',
   templateUrl: './carousel-a.component.html',
   styleUrls: ['./carousel-a.component.scss'],
-  standalone: true,
+  standalone : true,
   imports: [ThemeDirective, CarouselComponent, CarouselInnerComponent, NgFor, CarouselItemComponent, CarouselControlComponent, RouterLink]
 })
 export class Carousel02Component implements OnInit {

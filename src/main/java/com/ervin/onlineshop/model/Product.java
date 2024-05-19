@@ -2,6 +2,8 @@ package com.ervin.onlineshop.model;
 
 import jakarta.persistence.*;
 
+import java.time.LocalDateTime;
+
 @Entity
 @Table(name = "products")
 public class Product {
@@ -24,7 +26,18 @@ public class Product {
 
     @Column(nullable = false)
     private int quantity;
+
+    @Column(name = "created_at")
+    private LocalDateTime createdAt;
     // Getters and setters
+
+    public LocalDateTime getCreatedAt() {
+        return createdAt;
+    }
+
+    public void setCreatedAt(LocalDateTime createdAt) {
+        this.createdAt = createdAt;
+    }
 
     public Long getId() {
         return id;

@@ -1,9 +1,22 @@
 import { Routes } from '@angular/router';
 import { ProductListComponent } from './product-list/product-list.component';
 import { ProductDetailComponent } from './product-detail/product-detail.component';
+import { ShowCarouselGuard } from './Services/ShowCarouselGuard';
+import {HomePageComponent} from "./home-page/home-page.component";
 
 export const routes: Routes = [
-  { path: '', redirectTo: '/products', pathMatch: 'full' }, // Rediriger vers la liste des produits par défaut
-  { path: 'products', component: ProductListComponent }, // Route pour la liste des produits
-  { path: 'products/:id', component: ProductDetailComponent }, // Route pour afficher les détails d'un produit par son identifiant
+  {
+    path: '',
+    component: HomePageComponent,
+    // canActivate: [ShowCarouselGuard]
+  },
+  {
+    path: 'products',
+    component: ProductListComponent,
+    // canActivate: [ShowCarouselGuard]
+  },
+  {
+    path: 'products/:id',
+    component: ProductDetailComponent
+  },
 ];

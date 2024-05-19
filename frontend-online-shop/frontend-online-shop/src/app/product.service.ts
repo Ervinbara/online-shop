@@ -2,6 +2,7 @@ import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs';
 import { Product } from '../models/product';
+import { Router } from '@angular/router';
 
 @Injectable({
   providedIn: 'root'
@@ -20,4 +21,10 @@ export class ProductService {
     const url = `${this.apiUrl}/${id}`;
     return this.http.get<Product>(url);
   }
+
+  getLastProducts() {
+    const url = `${this.apiUrl}/last`;
+    return this.http.get<Product[]>(url);
+  }
+
 }

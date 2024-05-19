@@ -28,6 +28,11 @@ public class ProductController {
         List<ProductDTO> products = productService.getAllProducts();
         return new ResponseEntity<>(products, HttpStatus.OK);
     }
+    @GetMapping("/last")
+    public ResponseEntity<List<ProductDTO>> getLastProducts() {
+        List<ProductDTO> products = productService.getLastProducts();
+        return new ResponseEntity<>(products, HttpStatus.OK);
+    }
 
     // Endpoint pour récupérer un produit par son ID
     @GetMapping("/{id}")
