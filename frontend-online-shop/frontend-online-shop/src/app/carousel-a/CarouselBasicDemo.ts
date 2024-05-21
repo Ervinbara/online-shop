@@ -4,12 +4,15 @@ import {Product} from "../../models/product";
 import { CarouselModule } from 'primeng/carousel';
 import { ButtonModule } from 'primeng/button';
 import { TagModule } from 'primeng/tag';
+import {MatIcon} from "@angular/material/icon";
+import {MatIconButton} from "@angular/material/button";
 
 @Component({
   selector: 'carousel-basic-demo',
   templateUrl: './carousel-basic-demo.html',
+  styleUrls: ['./carousel-basic.component.css'],
   standalone: true,
-  imports: [CarouselModule, ButtonModule, TagModule],
+  imports: [CarouselModule, ButtonModule, TagModule, MatIcon, MatIconButton],
   providers: [ProductService]
 })
 export class CarouselBasicDemo implements OnInit {

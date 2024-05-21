@@ -1,0 +1,127 @@
+.card {
+  padding: 20px;
+  background-color: #f9f9f9;
+  border-radius: 10px;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+.p-carousel .p-carousel-content {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.border-1 {
+  border: 1px solid #ccc;
+}
+
+.surface-border {
+  background-color: #fff;
+}
+
+.border-round {
+  border-radius: 10px;
+}
+
+.m-2 {
+  margin: 0.5rem;
+}
+
+.p-3 {
+  padding: 1rem;
+}
+
+.mb-3 {
+  margin-bottom: 1rem;
+}
+
+.relative {
+  position: relative;
+}
+
+.mx-auto {
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.w-full {
+  width: 100%;
+}
+
+.flex {
+  display: flex;
+}
+
+.justify-content-between {
+  justify-content: space-between;
+}
+
+.align-items-center {
+  align-items: center;
+}
+
+.font-medium {
+  font-weight: 500;
+}
+
+.font-semibold {
+  font-weight: 600;
+}
+
+.text-xl {
+  font-size: 1.25rem;
+}
+
+.product-image {
+  max-width: 100%;
+  max-height: 300px; /* Ajustez cette valeur selon vos besoins */
+  width: auto;
+  height: auto;
+  object-fit: contain;
+  border-radius: 10px;
+}
+
+
+/*CSS pour les fléches */
+/* Style for the custom carousel */
+.custom-carousel .p-carousel-prev,
+.custom-carousel .p-carousel-next {
+  background-color: rgba(0, 0, 0, 0.5);
+  border: none;
+  color: white;
+  font-size: 24px;
+  padding: 10px;
+  cursor: pointer;
+  z-index: 1;
+  transition: background-color 0.3s ease;
+}
+
+.custom-carousel .p-carousel-prev:hover,
+.custom-carousel .p-carousel-next:hover {
+  background-color: rgba(0, 0, 0, 0.8);
+}
+
+.custom-carousel .p-carousel-indicators {
+  display: flex;
+  justify-content: center;
+  padding: 10px 0;
+}
+
+.custom-carousel .p-carousel-indicators button {
+  background-color: gray;
+  border: none;
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  margin: 0 5px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.custom-carousel .p-carousel-indicators button.p-highlight {
+  background-color: black;
+}
+
+.custom-carousel .p-carousel-indicators button:hover {
+  background-color: darkgray;
+}

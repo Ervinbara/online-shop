@@ -3,8 +3,9 @@
     [value]="products"
     [numVisible]="3"
     [numScroll]="3"
-    [circular]="false"
-    [responsiveOptions]="responsiveOptions">
+    [circular]="true"
+    [responsiveOptions]="responsiveOptions"
+    class="custom-carousel">
     <ng-template let-product pTemplate="item">
       <div class="border-1 surface-border border-round m-2 p-3">
         <div class="mb-3">
@@ -12,7 +13,7 @@
             <img
               [src]="'assets/sneakers/' + product.image"
               [alt]="product.name"
-              class="w-full border-round" />
+              class="w-full border-round product-image" />
           </div>
         </div>
         <div class="mb-3 font-medium">
@@ -23,8 +24,12 @@
             {{ '$' + product.price }}
           </div>
           <span>
-              <p-button icon="pi pi-heart" severity="secondary" [outlined]="true" />
-              <p-button icon="pi pi-shopping-cart" styleClass="ml-2" />
+            <button mat-icon-button color="primary">
+              <mat-icon>favorite</mat-icon>
+            </button>
+            <button mat-icon-button color="accent" class="ml-2">
+              <mat-icon>shopping_cart</mat-icon>
+            </button>
           </span>
         </div>
       </div>

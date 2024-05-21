@@ -12,7 +12,7 @@ import {
 @Component({
   selector: 'app-carousel-a',
   templateUrl: './carousel-a.component.html',
-  styleUrls: ['./carousel-a.component.scss'],
+  styleUrls: ['./carousel-a.component.css'],
   standalone : true,
   imports: [ThemeDirective, CarouselComponent, CarouselInnerComponent, NgFor, CarouselItemComponent, CarouselControlComponent, RouterLink]
 })

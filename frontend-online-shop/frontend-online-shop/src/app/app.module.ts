@@ -13,6 +13,7 @@ import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import {Carousel02Component} from "./carousel-a/carousel-a.component";
 import {HomePageComponent} from "./home-page/home-page.component";
 import {CarouselBasicDemo} from "./carousel-a/CarouselBasicDemo"; // Importez le module NgbModule si vous utilisez NgbCarouselModule
+import { ButtonModule } from 'primeng/button';
 
 @NgModule({
   declarations: [
@@ -29,7 +30,8 @@ import {CarouselBasicDemo} from "./carousel-a/CarouselBasicDemo"; // Importez le
         FormsModule,
         NgbModule,
         Carousel02Component,
-        CarouselBasicDemo
+        CarouselBasicDemo,
+        ButtonModule
 
     ],
   providers: [],
