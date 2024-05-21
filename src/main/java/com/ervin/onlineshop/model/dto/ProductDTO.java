@@ -1,12 +1,17 @@
 package com.ervin.onlineshop.model.dto;
 
+import java.time.LocalDateTime;
+
 public class ProductDTO {
     private Long id;
     private String name;
     private String description;
     private double price;
 
+    private LocalDateTime createdAt;
     private int quantity;
+
+    private String image;
 
     // Getters and setters
 
@@ -49,5 +54,21 @@ public class ProductDTO {
 
     public void setQuantity(int quantity) {
         this.quantity = quantity;
+    }
+
+    public String getImage() {
+        return image;
+    }
+
+    public void setImage(String image) {
+        this.image = image;
+    }
+
+    public LocalDateTime getCreatedAt() {
+        return createdAt;
+    }
+
+    public void setCreatedAt(LocalDateTime createdAt) {
+        this.createdAt = createdAt;
     }
 }

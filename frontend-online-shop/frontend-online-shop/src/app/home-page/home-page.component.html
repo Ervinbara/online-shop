@@ -1,9 +1,12 @@
 <app-carousel-a></app-carousel-a>
-<div *ngFor="let product of lastProducts" class="product-card">
-  <!--        <div mat-card-avatar class="product-image"></div>-->
-  <p>{{ product.name }}</p>
-  <p>{{ product.description }}</p>
-  <p>Price: {{ product.price }}</p>
-  <button mat-button>Add to Cart</button>
-  <button mat-button (click)="goToProductDetail(product.id)">Voir plus</button> <!-- Ajout du bouton "Voir plus" -->
-</div>
+<!--<div *ngFor="let product of lastProducts" class="product-card">-->
+<!--  &lt;!&ndash;        <div mat-card-avatar class="product-image"></div>&ndash;&gt;-->
+<!--  <p>{{ product.name }}</p>-->
+<!--  <p>{{ product.description }}</p>-->
+<!--  <p>Price: {{ product.price }}</p>-->
+<!--  <button mat-button>Add to Cart</button>-->
+<!--  <button mat-button (click)="goToProductDetail(product.id)">Voir plus</button> &lt;!&ndash; Ajout du bouton "Voir plus" &ndash;&gt;-->
+<!--</div>-->
+
+
+<carousel-basic-demo></carousel-basic-demo>

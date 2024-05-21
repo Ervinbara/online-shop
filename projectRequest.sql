@@ -7,6 +7,7 @@ CREATE TABLE products (
     quantity INT NOT NULL,
     created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
     updated_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP
+    ALTER TABLE products ADD COLUMN image VARCHAR(255) NULL;
 );
 
 -- Script entité user --

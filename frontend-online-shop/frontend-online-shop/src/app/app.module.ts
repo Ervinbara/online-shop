@@ -11,7 +11,8 @@ import { MatButtonModule } from "@angular/material/button";
 import { ProductDetailComponent } from './product-detail/product-detail.component';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import {Carousel02Component} from "./carousel-a/carousel-a.component";
-import {HomePageComponent} from "./home-page/home-page.component"; // Importez le module NgbModule si vous utilisez NgbCarouselModule
+import {HomePageComponent} from "./home-page/home-page.component";
+import {CarouselBasicDemo} from "./carousel-a/CarouselBasicDemo"; // Importez le module NgbModule si vous utilisez NgbCarouselModule
 
 @NgModule({
   declarations: [
@@ -19,17 +20,18 @@ import {HomePageComponent} from "./home-page/home-page.component"; // Importez l
     ProductDetailComponent,
     HomePageComponent
   ],
-  imports: [
-    CommonModule,
-    HttpClientModule,
-    RouterModule,
-    MatCardModule,
-    MatButtonModule,
-    FormsModule,
-    NgbModule,
-    Carousel02Component
+    imports: [
+        CommonModule,
+        HttpClientModule,
+        RouterModule,
+        MatCardModule,
+        MatButtonModule,
+        FormsModule,
+        NgbModule,
+        Carousel02Component,
+        CarouselBasicDemo
 
-  ],
+    ],
   providers: [],
   bootstrap: [AppComponent],
   exports: [

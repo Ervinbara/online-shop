@@ -110,6 +110,8 @@ public class ProductServiceImpl implements ProductService {
         dto.setDescription(product.getDescription());
         dto.setPrice(product.getPrice());
         dto.setQuantity(product.getQuantity());
+        dto.setCreatedAt(product.getCreatedAt());
+        dto.setImage(product.getImage());
         return dto;
     }
 }
