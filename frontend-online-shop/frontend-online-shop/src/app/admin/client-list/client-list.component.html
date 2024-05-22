@@ -1,0 +1,11 @@
+<div>
+  <h2>Clients</h2>
+  <button (click)="addClient()">Add Client</button>
+  <ul>
+    <li *ngFor="let client of clients">
+      {{ client.name }}
+      <button (click)="editClient(client.id)">Edit</button>
+      <button (click)="deleteClient(client.id)">Delete</button>
+    </li>
+  </ul>
+</div>

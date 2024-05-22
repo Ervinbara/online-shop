@@ -7,14 +7,12 @@ public class ProductDTO {
     private String name;
     private String description;
     private double price;
-
-    private LocalDateTime createdAt;
     private int quantity;
-
+    private int stockQuantity;
     private String image;
+    private LocalDateTime createdAt;
 
     // Getters and setters
-
 
     public Long getId() {
         return id;
@@ -70,5 +68,13 @@ public class ProductDTO {
 
     public void setCreatedAt(LocalDateTime createdAt) {
         this.createdAt = createdAt;
+    }
+
+    public int getStockQuantity() {
+        return stockQuantity;
+    }
+
+    public void setStockQuantity(int stockQuantity) {
+        this.stockQuantity = stockQuantity;
     }
 }

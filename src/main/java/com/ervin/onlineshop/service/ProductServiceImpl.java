@@ -88,6 +88,8 @@ public class ProductServiceImpl implements ProductService {
         existingProduct.setDescription(productDTO.getDescription());
         existingProduct.setPrice(productDTO.getPrice());
         existingProduct.setQuantity(productDTO.getQuantity());
+        existingProduct.setStockQuantity(productDTO.getStockQuantity());
+        existingProduct.setImage(productDTO.getImage());
 
         // Enregistrer le produit mis à jour dans la base de données
         Product updatedProduct = productRepository.save(existingProduct);
@@ -112,6 +114,7 @@ public class ProductServiceImpl implements ProductService {
         dto.setQuantity(product.getQuantity());
         dto.setCreatedAt(product.getCreatedAt());
         dto.setImage(product.getImage());
+        dto.setStockQuantity(product.getStockQuantity());
         return dto;
     }
 }

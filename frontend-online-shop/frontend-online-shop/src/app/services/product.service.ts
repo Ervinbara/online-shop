@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs';
-import { Product } from '../models/product';
+import { Product } from '../../models/product';
 import { Router } from '@angular/router';
 
 @Injectable({
@@ -25,6 +25,21 @@ export class ProductService {
   getLastProducts() {
     const url = `${this.apiUrl}/last`;
     return this.http.get<Product[]>(url);
+  }
+
+  getProduct(id: number): Observable<Product> {
+    return this.http.get<Product>(`${this.apiUrl}/${id}`);
+  }
+  createProduct(product: Product): Observable<Product> {
+    return this.http.post<Product>(this.apiUrl, product);
+  }
+
+  updateProduct(id: number, product: Product): Observable<Product> {
+    return this.http.put<Product>(`${this.apiUrl}/${id}`, product);
+  }
+
+  deleteProduct(id: number): Observable<void> {
+    return this.http.delete<void>(`${this.apiUrl}/${id}`);
   }
 
 }

@@ -26,10 +26,15 @@ public class Product {
     @Column(nullable = false)
     private int quantity;
 
-    @Column(name = "created_at")
+    @Column(nullable = false, updatable = false)
     private LocalDateTime createdAt;
 
-    @Column(nullable = false)
+    @PrePersist
+    protected void onCreate() {
+        createdAt = LocalDateTime.now();
+    }
+
+    @Column(nullable = true)
     private String image;
 
     // Getters and setters

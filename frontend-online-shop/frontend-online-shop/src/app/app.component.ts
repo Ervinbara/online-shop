@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { Router, NavigationEnd } from '@angular/router';
+import {Router, NavigationEnd, RouterLink} from '@angular/router';
 import { RouterOutlet } from '@angular/router';
 import { MatIcon } from '@angular/material/icon';
 import { Carousel02Component } from './carousel-a/carousel-a.component';
@@ -14,6 +14,7 @@ import {AppModule} from "./app.module";
     AppModule,
     MatIcon,
     Carousel02Component,
+    RouterLink,
   ],
   standalone: true // Ajoutez cette ligne pour définir le composant comme autonome
 })

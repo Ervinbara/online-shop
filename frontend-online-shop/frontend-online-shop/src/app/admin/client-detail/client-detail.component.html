@@ -1,0 +1,10 @@
+<div>
+  <h2>{{ isNewClient ? 'Add New Client' : 'Edit Client' }}</h2>
+  <form (ngSubmit)="saveClient()">
+    <label for="name">Name:</label>
+    <input id="name" [(ngModel)]="client.name" name="name" required>
+    <label for="email">Email:</label>
+    <input id="email" [(ngModel)]="client.email" name="email" required>
+    <button type="submit">Save</button>
+  </form>
+</div>

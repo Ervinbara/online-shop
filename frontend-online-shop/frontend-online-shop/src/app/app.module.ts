@@ -14,12 +14,20 @@ import {Carousel02Component} from "./carousel-a/carousel-a.component";
 import {HomePageComponent} from "./home-page/home-page.component";
 import {CarouselBasicDemo} from "./carousel-a/CarouselBasicDemo"; // Importez le module NgbModule si vous utilisez NgbCarouselModule
 import { ButtonModule } from 'primeng/button';
+import {ProductDetailComponentAdmin} from "./admin/product-detail/product-detail.component";
+import {ProductListComponentAdmin} from "./admin/product-list/product-list.component";
+import {ClientListComponentAdmin} from "./admin/client-list/client-list.component";
+import {ClientDetailComponentAdmin} from "./admin/client-detail/client-detail.component";
 
 @NgModule({
   declarations: [
     ProductListComponent,
     ProductDetailComponent,
-    HomePageComponent
+    HomePageComponent,
+    ProductDetailComponentAdmin,
+    ProductListComponentAdmin,
+    ClientListComponentAdmin,
+    ClientDetailComponentAdmin,
   ],
     imports: [
         CommonModule,
