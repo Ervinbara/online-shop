@@ -1,10 +1,25 @@
 <div>
   <h2>{{ isNewClient ? 'Add New Client' : 'Edit Client' }}</h2>
   <form (ngSubmit)="saveClient()">
-    <label for="name">Name:</label>
-    <input id="name" [(ngModel)]="client.name" name="name" required>
-    <label for="email">Email:</label>
-    <input id="email" [(ngModel)]="client.email" name="email" required>
+    <div>
+      <label for="name">Name:</label>
+      <input id="name" [(ngModel)]="client.name" name="name" required>
+    </div>
+    <div>
+      <label for="email">Email:</label>
+      <input id="email" [(ngModel)]="client.email" name="email" required>
+    </div>
+    <div *ngIf="isNewClient">
+      <label for="password">Password:</label>
+      <input id="password" type="password" [(ngModel)]="client.password" name="password" required>
+    </div>
+    <div>
+      <label for="role">Role:</label>
+      <select id="role" [(ngModel)]="client.role" name="role" required>
+        <option value="ROLE_USER">User</option>
+        <option value="ROLE_ADMIN">Admin</option>
+      </select>
+    </div>
     <button type="submit">Save</button>
   </form>
 </div>

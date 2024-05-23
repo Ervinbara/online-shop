@@ -5,6 +5,7 @@ import {HomePageComponent} from "./home-page/home-page.component";
 import {ProductDetailComponentAdmin} from "./admin/product-detail/product-detail.component";
 import {ProductListComponentAdmin} from "./admin/product-list/product-list.component";
 import {ClientListComponentAdmin} from "./admin/client-list/client-list.component";
+import {ClientDetailComponentAdmin} from "./admin/client-detail/client-detail.component";
 
 export const routes: Routes = [
   {
@@ -32,10 +33,10 @@ export const routes: Routes = [
     component: ClientListComponentAdmin
   },
   { path: 'admin/clients/:id',
-    component: ClientListComponentAdmin
+    component: ClientDetailComponentAdmin
   },
   { path: 'admin/clients/new',
-    component: ClientListComponentAdmin
+    component: ClientDetailComponentAdmin
   },
 
 ];

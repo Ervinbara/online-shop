@@ -20,12 +20,15 @@ export class ClientDetailComponentAdmin implements OnInit {
 
   ngOnInit(): void {
     const id = this.route.snapshot.paramMap.get('id');
-    if (id) {
+    if (id && id !== 'new') {
+      this.isNewClient = false;
       this.clientService.getClient(+id).subscribe(client => this.client = client);
     } else {
       this.isNewClient = true;
+      this.client = new Client(); // Initialiser un nouveau client
     }
   }
+
 
   saveClient(): void {
     if (this.isNewClient) {
