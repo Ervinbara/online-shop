@@ -3,6 +3,8 @@ package com.ervin.onlineshop.service;
 import com.ervin.onlineshop.model.dto.OrderDTO;
 
 public interface OrderService {
+
+//    OrderDTO getAllOrders();
     OrderDTO createOrder(OrderDTO orderDTO);
 
     OrderDTO getOrderById(Long id);

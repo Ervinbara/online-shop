@@ -6,6 +6,7 @@ import {ProductDetailComponentAdmin} from "./admin/product-detail/product-detail
 import {ProductListComponentAdmin} from "./admin/product-list/product-list.component";
 import {ClientListComponentAdmin} from "./admin/client-list/client-list.component";
 import {ClientDetailComponentAdmin} from "./admin/client-detail/client-detail.component";
+import {DashboardComponent} from "./admin/dashboard/dashboard.component";
 
 export const routes: Routes = [
   {
@@ -15,6 +16,9 @@ export const routes: Routes = [
   {
     path: 'products',
     component: ProductListComponent,
+  },
+  { path: 'admin',
+    component: DashboardComponent
   },
   {
     path: 'products/:id',

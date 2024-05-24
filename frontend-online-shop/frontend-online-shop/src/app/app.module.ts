@@ -18,6 +18,9 @@ import {ProductDetailComponentAdmin} from "./admin/product-detail/product-detail
 import {ProductListComponentAdmin} from "./admin/product-list/product-list.component";
 import {ClientListComponentAdmin} from "./admin/client-list/client-list.component";
 import {ClientDetailComponentAdmin} from "./admin/client-detail/client-detail.component";
+import {HeaderComponent} from "./header/header.component";
+import {DashboardComponent} from "./admin/dashboard/dashboard.component";
+import {SidebarComponent} from "./admin/sidebar/sidebar.component";
 
 @NgModule({
   declarations: [
@@ -28,6 +31,8 @@ import {ClientDetailComponentAdmin} from "./admin/client-detail/client-detail.co
     ProductListComponentAdmin,
     ClientListComponentAdmin,
     ClientDetailComponentAdmin,
+    DashboardComponent,
+    SidebarComponent
   ],
     imports: [
         CommonModule,
@@ -39,8 +44,8 @@ import {ClientDetailComponentAdmin} from "./admin/client-detail/client-detail.co
         NgbModule,
         Carousel02Component,
         CarouselBasicDemo,
-        ButtonModule
-
+        ButtonModule,
+        HeaderComponent
     ],
   providers: [],
   bootstrap: [AppComponent],

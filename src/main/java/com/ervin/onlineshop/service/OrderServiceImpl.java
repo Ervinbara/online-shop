@@ -2,9 +2,11 @@ package com.ervin.onlineshop.service;
 
 import com.ervin.onlineshop.model.Order;
 import com.ervin.onlineshop.model.OrderItem;
+import com.ervin.onlineshop.model.Product;
 import com.ervin.onlineshop.model.User;
 import com.ervin.onlineshop.model.dto.OrderDTO;
 import com.ervin.onlineshop.model.dto.OrderItemDTO;
+import com.ervin.onlineshop.model.dto.UserDTO;
 import com.ervin.onlineshop.repository.OrderItemRepository;
 import com.ervin.onlineshop.repository.OrderRepository;
 import jakarta.transaction.Transactional;
@@ -13,7 +15,9 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import com.ervin.onlineshop.repository.UserRepository;
 
+import java.util.List;
 import java.util.Optional;
+import java.util.stream.Collectors;
 
 @Service
 public class OrderServiceImpl implements OrderService {
@@ -30,6 +34,14 @@ public class OrderServiceImpl implements OrderService {
         this.orderRepository = orderRepository;
         this.modelMapper = modelMapper;
     }
+
+//    @Override
+//    public OrderDTO getAllOrders() {
+//        List<Order> orders = orderRepository.findAll();
+//        return orders.stream()
+//                .map(order -> modelMapper.map(order, OrderDTO.class))
+//                .collect(Collectors.toList());
+//    }
 
     @Override
     @Transactional
