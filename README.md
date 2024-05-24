@@ -86,7 +86,6 @@
   <li>Spring Boot</li>
   <li>Spring Data JPA</li>
   <li>Spring Security</li>
-  <li>JWT (JSON Web Tokens)</li>
   <li>MySQL ou PostgreSQL (base de données relationnelle)</li>
 </ul>
 
@@ -96,7 +95,6 @@
   <li>Angular</li>
   <li>Angular Material (pour les composants UI)</li>
   <li>HTML/CSS/TypeScript</li>
-  <li>RxJS (pour la gestion des flux de données)</li>
 </ul>
 
 <h2>Livrables Attendus</h2>
