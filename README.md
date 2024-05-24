@@ -3,7 +3,6 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Cahier des Charges - Système de Gestion de Magasin en Ligne</title>
 </head>
 <body>
 
