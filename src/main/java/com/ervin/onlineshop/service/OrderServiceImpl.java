@@ -35,13 +35,13 @@ public class OrderServiceImpl implements OrderService {
         this.modelMapper = modelMapper;
     }
 
-//    @Override
-//    public OrderDTO getAllOrders() {
-//        List<Order> orders = orderRepository.findAll();
-//        return orders.stream()
-//                .map(order -> modelMapper.map(order, OrderDTO.class))
-//                .collect(Collectors.toList());
-//    }
+    @Override
+    public List<OrderDTO> getAllOrders() {
+        List<Order> orders = orderRepository.findAll();
+        return orders.stream()
+                .map(order -> modelMapper.map(order, OrderDTO.class))
+                .collect(Collectors.toList());
+    }
 
     @Override
     @Transactional

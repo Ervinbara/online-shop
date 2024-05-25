@@ -7,6 +7,11 @@ import {ProductListComponentAdmin} from "./admin/product-list/product-list.compo
 import {ClientListComponentAdmin} from "./admin/client-list/client-list.component";
 import {ClientDetailComponentAdmin} from "./admin/client-detail/client-detail.component";
 import {DashboardComponent} from "./admin/dashboard/dashboard.component";
+import {OrderListComponent} from "./admin/order-list/order-list.component";
+import {OrderDetailComponent} from "./admin/order-detail/order-detail.component";
+import {LogoutComponent} from "./logout/logout.component";
+import {RegisterComponent} from "./register/register.component";
+import {LoginComponent} from "./login/login.component";
 
 export const routes: Routes = [
   {
@@ -41,6 +46,21 @@ export const routes: Routes = [
   },
   { path: 'admin/clients/new',
     component: ClientDetailComponentAdmin
+  },
+  { path: 'admin/orders',
+    component: OrderListComponent
+  },
+  { path: 'order-detail/:id',
+    component: OrderDetailComponent
+  },
+  { path: 'login',
+    component: LoginComponent
+  },
+  { path: 'register',
+    component: RegisterComponent
+  },
+  { path: 'logout',
+    component: LogoutComponent
   },
 
 ];

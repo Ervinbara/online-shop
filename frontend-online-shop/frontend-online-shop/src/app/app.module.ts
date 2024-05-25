@@ -21,6 +21,11 @@ import {ClientDetailComponentAdmin} from "./admin/client-detail/client-detail.co
 import {HeaderComponent} from "./header/header.component";
 import {DashboardComponent} from "./admin/dashboard/dashboard.component";
 import {SidebarComponent} from "./admin/sidebar/sidebar.component";
+import {OrderListComponent} from "./admin/order-list/order-list.component";
+import {OrderDetailComponent} from "./admin/order-detail/order-detail.component";
+import {LoginComponent} from "./login/login.component";
+import {RegisterComponent} from "./register/register.component";
+import {LogoutComponent} from "./logout/logout.component";
 
 @NgModule({
   declarations: [
@@ -32,7 +37,12 @@ import {SidebarComponent} from "./admin/sidebar/sidebar.component";
     ClientListComponentAdmin,
     ClientDetailComponentAdmin,
     DashboardComponent,
-    SidebarComponent
+    SidebarComponent,
+    OrderListComponent,
+    OrderDetailComponent,
+    LoginComponent,
+    RegisterComponent,
+    LogoutComponent
   ],
     imports: [
         CommonModule,

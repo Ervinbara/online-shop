@@ -2,9 +2,11 @@ package com.ervin.onlineshop.service;
 
 import com.ervin.onlineshop.model.dto.OrderDTO;
 
+import java.util.List;
+
 public interface OrderService {
 
-//    OrderDTO getAllOrders();
+    List<OrderDTO> getAllOrders();
     OrderDTO createOrder(OrderDTO orderDTO);
 
     OrderDTO getOrderById(Long id);

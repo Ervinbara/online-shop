@@ -1,12 +1,11 @@
 package com.ervin.onlineshop.controller;
 
 import com.ervin.onlineshop.model.dto.OrderDTO;
-import com.ervin.onlineshop.model.dto.ProductDTO;
 import com.ervin.onlineshop.service.OrderService;
 import org.springframework.http.HttpStatus;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
-
 import java.util.List;
 
 @RestController
@@ -15,16 +14,16 @@ import java.util.List;
 public class OrderController {
 
     private final OrderService orderService;
-
+    @Autowired
     public OrderController(OrderService orderService) {
         this.orderService = orderService;
     }
 
-//    @GetMapping
-//    public ResponseEntity<List<OrderDTO>> getAllOrders() {
-//        List<OrderDTO> orders = (List<OrderDTO>) orderService.getAllOrders();
-//        return new ResponseEntity<>(orders, HttpStatus.OK);
-//    }
+    @GetMapping
+    public ResponseEntity<List<OrderDTO>> getAllOrders() {
+        List<OrderDTO> orders = orderService.getAllOrders();
+        return new ResponseEntity<>(orders, HttpStatus.OK);
+    }
     @PostMapping
     public ResponseEntity<OrderDTO> createOrder(@RequestBody OrderDTO orderDTO) {
         OrderDTO createdOrder = orderService.createOrder(orderDTO);

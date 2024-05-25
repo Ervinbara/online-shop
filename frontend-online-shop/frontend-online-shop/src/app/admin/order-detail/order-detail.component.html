@@ -1,0 +1,23 @@
+<div *ngIf="order">
+  <h2>Order Details</h2>
+  <div>
+    <label>Order ID: </label> {{ order.id }}
+  </div>
+  <div>
+    <label>User ID: </label> {{ order.userId }}
+  </div>
+  <div>
+    <label>Created At: </label> {{ order.createdAt }}
+  </div>
+  <div>
+    <label>Total Price: </label> {{ order.totalPrice }}
+  </div>
+  <div>
+    <h3>Order Items</h3>
+    <ul>
+      <li *ngFor="let item of order.orderItems">
+        {{ item.productId }} - {{ item.quantity }} - {{ item.price }}
+      </li>
+    </ul>
+  </div>
+</div>

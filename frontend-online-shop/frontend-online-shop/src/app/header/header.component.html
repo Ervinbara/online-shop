@@ -1,4 +1,4 @@
-<!-- Header -->
+<!-- header.component.html -->
 <header class="header">
   <!-- Partie supérieure -->
   <div class="header-top">
@@ -6,7 +6,8 @@
       <span>Livraison gratuite > 50 $ | Livraison rapide | Renvois gratuits</span>
     </div>
     <div class="right-content">
-      <a href="#" class="login-link">Se connecter</a>
+      <a *ngIf="!isLoggedIn" routerLink="/login" class="login-link">Se connecter</a>
+      <a *ngIf="isLoggedIn" (click)="logout()" class="logout-link">Déconnexion</a>
       <span>Service client</span>
     </div>
   </div>
@@ -40,5 +41,3 @@
 </header>
 
 <router-outlet></router-outlet>
-
-
