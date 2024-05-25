@@ -1,0 +1,10 @@
+<div class="cart">
+  <h2>Mon Panier</h2>
+  <div *ngFor="let item of cartItems" class="cart-item">
+    <h4>{{ item.product.name }}</h4>
+    <p>{{ item.product.description }}</p>
+    <p>{{ item.product.price | currency }}</p>
+    <p>Quantité: {{ item.quantity }}</p>
+    <button (click)="removeFromCart(item)" class="btn">Retirer du panier</button>
+  </div>
+</div>

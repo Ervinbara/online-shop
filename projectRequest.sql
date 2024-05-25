@@ -37,3 +37,11 @@ CREATE TABLE order_item (
     FOREIGN KEY (product_id) REFERENCES products(id)
     -- FOREIGN KEY (order_id) REFERENCES orders(id),--
 );
+
+-- Script entité cart_item --
+CREATE TABLE cart_item (
+   id BIGINT AUTO_INCREMENT PRIMARY KEY,
+   product_id BIGINT NOT NULL,
+   quantity INT NOT NULL,
+   CONSTRAINT fk_cart_item_product FOREIGN KEY (product_id) REFERENCES products (id)
+);

@@ -26,6 +26,9 @@ import {OrderDetailComponent} from "./admin/order-detail/order-detail.component"
 import {LoginComponent} from "./login/login.component";
 import {RegisterComponent} from "./register/register.component";
 import {LogoutComponent} from "./logout/logout.component";
+import {CartProductListComponent} from "./cart-product-list/cart-product-list.component";
+import {CartComponent} from "./cart/cart.component";
+import {MatIcon} from "@angular/material/icon";
 
 @NgModule({
   declarations: [
@@ -42,21 +45,24 @@ import {LogoutComponent} from "./logout/logout.component";
     OrderDetailComponent,
     LoginComponent,
     RegisterComponent,
-    LogoutComponent
+    LogoutComponent,
+    CartProductListComponent,
+    CartComponent
   ],
-    imports: [
-        CommonModule,
-        HttpClientModule,
-        RouterModule,
-        MatCardModule,
-        MatButtonModule,
-        FormsModule,
-        NgbModule,
-        Carousel02Component,
-        CarouselBasicDemo,
-        ButtonModule,
-        HeaderComponent
-    ],
+  imports: [
+    CommonModule,
+    HttpClientModule,
+    RouterModule,
+    MatCardModule,
+    MatButtonModule,
+    FormsModule,
+    NgbModule,
+    Carousel02Component,
+    CarouselBasicDemo,
+    ButtonModule,
+    HeaderComponent,
+    MatIcon
+  ],
   providers: [],
   bootstrap: [AppComponent],
   exports: [
