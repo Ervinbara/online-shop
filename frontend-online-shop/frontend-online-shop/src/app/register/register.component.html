@@ -1,18 +1,21 @@
 <!-- register.component.html -->
-<h2>Register</h2>
-<form (ngSubmit)="register()">
-  <div>
-    <label for="name">Name:</label>
-    <input type="text" id="name" [(ngModel)]="client.name" name="name" required>
-  </div>
-  <div>
-    <label for="email">Email:</label>
-    <input type="email" id="email" [(ngModel)]="client.email" name="email" required>
-  </div>
-  <div>
-    <label for="password">Password:</label>
-    <input type="password" id="password" [(ngModel)]="client.password" name="password" required>
-  </div>
-  <button type="submit">Register</button>
-  <div *ngIf="errorMessage">{{ errorMessage }}</div>
-</form>
+<div class="auth-container">
+  <h2>Créer un compte</h2>
+  <form (ngSubmit)="register()" class="auth-form">
+    <div class="form-group">
+      <label for="name">Name:</label>
+      <input type="text" id="name" [(ngModel)]="client.name" name="name" required>
+    </div>
+    <div class="form-group">
+      <label for="email">Email:</label>
+      <input type="email" id="email" [(ngModel)]="client.email" name="email" required>
+    </div>
+    <div class="form-group">
+      <label for="password">Password:</label>
+      <input type="password" id="password" [(ngModel)]="client.password" name="password" required>
+    </div>
+    <button type="submit" class="btn">Register</button>
+    <div *ngIf="errorMessage" class="error-message">{{ errorMessage }}</div>
+    <a routerLink="/" class="btn home-btn">Retour à l'accueil</a>
+  </form>
+</div>

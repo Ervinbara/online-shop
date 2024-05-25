@@ -3,6 +3,7 @@ import {Router, RouterLink, RouterOutlet} from "@angular/router";
 import {MatIcon} from "@angular/material/icon";
 import {AuthService} from "../services/auth.service";
 import { CommonModule } from "@angular/common";
+import {AuthStatusService} from "../services/auth-status.service";
 
 @Component({
   selector: 'app-header',
@@ -17,12 +18,14 @@ import { CommonModule } from "@angular/common";
   styleUrl: './header.component.css'
 })
 export class HeaderComponent implements OnInit{
-  isLoggedIn: boolean = false;
+  isLoggedIn: boolean = true;
 
-  constructor(private authService: AuthService, private router: Router) { }
+  constructor(private authService: AuthService, private router: Router,  private authStatusService: AuthStatusService,)
+  { }
 
   ngOnInit(): void {
-    this.isLoggedIn = this.authService.isLoggedIn();
+    this.authStatusService.authStatus.subscribe(status => this.isLoggedIn = status);
+    this.isLoggedIn = this.authService.isLoggedIn(); // Initialize isLoggedIn
   }
 
   logout(): void {
@@ -30,6 +33,8 @@ export class HeaderComponent implements OnInit{
       localStorage.removeItem('currentUser');
       this.isLoggedIn = false;
       this.router.navigate(['/login']);
+    }, error => {
+      console.error('Logout failed', error);
     });
   }
 }

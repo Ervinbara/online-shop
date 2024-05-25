@@ -30,13 +30,13 @@ public class SecurityConfig {
                 .cors(Customizer.withDefaults())
                 .csrf(AbstractHttpConfigurer::disable)
                 .authorizeHttpRequests(authorizeRequests -> authorizeRequests
-                        .requestMatchers("/logout").authenticated()
+                        .requestMatchers("/logout").permitAll()
                         .anyRequest().permitAll() // Aucunes requêtes ne nécessitent une authentification
                 );
         httpSecurity.logout(lOut -> {
             lOut.invalidateHttpSession(true)
                     .clearAuthentication(true)
-                    .logoutRequestMatcher(new AntPathRequestMatcher("/logout"))
+                    .logoutRequestMatcher(new AntPathRequestMatcher("/logout","GET"))
                     .logoutSuccessUrl("/login?logout")
                     .permitAll();
         });

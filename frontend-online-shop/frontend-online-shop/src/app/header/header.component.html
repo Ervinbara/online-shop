@@ -6,9 +6,9 @@
       <span>Livraison gratuite > 50 $ | Livraison rapide | Renvois gratuits</span>
     </div>
     <div class="right-content">
-      <a *ngIf="!isLoggedIn" routerLink="/login" class="login-link">Se connecter</a>
-      <a *ngIf="isLoggedIn" (click)="logout()" class="logout-link">Déconnexion</a>
-      <span>Service client</span>
+      <a *ngIf="!isLoggedIn" routerLink="/login" class="button login-link">Se connecter</a>
+      <a *ngIf="isLoggedIn" (click)="logout()" class="button logout-link">Déconnexion</a>
+      <span class="service-client">Service client</span>
     </div>
   </div>
 
