@@ -35,4 +35,11 @@ export class CommandeService {
     const headers = new HttpHeaders({ 'Content-Type': 'application/json' });
     return this.http.put<Order>(url, order, { headers });
   }
+
+  // Ajout de la méthode pour créer une commande
+  createOrder(order: Order): Observable<Order> {
+    const headers = new HttpHeaders({ 'Content-Type': 'application/json' });
+    return this.http.post<Order>(this.apiUrl, order, { headers });
+  }
+
 }

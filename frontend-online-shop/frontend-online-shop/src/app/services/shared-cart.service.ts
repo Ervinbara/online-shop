@@ -1,3 +1,4 @@
+// shared-cart.service.ts
 import { Injectable } from '@angular/core';
 import { BehaviorSubject, Observable } from 'rxjs';
 import { CartItem } from '../../models/cart-item';
@@ -40,6 +41,17 @@ export class SharedCartService {
     this.updateCartItemCount();
   }
 
+  updateCartItemQuantity(cartItem: CartItem): void {
+    const existingItem = this.cartItems.find(item => item.product.id === cartItem.product.id);
+
+    if (existingItem) {
+      existingItem.quantity = cartItem.quantity;
+    }
+
+    this.cartItemsSubject.next(this.cartItems);
+    this.updateCartItemCount();
+  }
+
   getCartItemCount(): Observable<number> {
     return this.cartItemCountSubject.asObservable();
   }
@@ -50,7 +62,13 @@ export class SharedCartService {
     this.updateCartItemCount();
   }
 
-  updateCartItemCount(): void {
+  clearCart(): void {
+    this.cartItems = [];
+    this.cartItemsSubject.next(this.cartItems);
+    this.cartItemCountSubject.next(0);
+  }
+
+  private updateCartItemCount(): void {
     const itemCount = this.cartItems.reduce((count, item) => count + item.quantity, 0);
     this.cartItemCountSubject.next(itemCount);
   }

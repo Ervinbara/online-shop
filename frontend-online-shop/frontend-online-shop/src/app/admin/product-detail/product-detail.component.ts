@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { ProductService } from '../../services/product.service';
 import { Product } from '../../../models/product';
+import { HttpClient, HttpErrorResponse } from '@angular/common/http';
 
 @Component({
   selector: 'app-product-detail',
@@ -11,11 +12,14 @@ import { Product } from '../../../models/product';
 export class ProductDetailComponentAdmin implements OnInit {
   product: Product = new Product();
   isNewProduct: boolean = false;
+  selectedFile: File | null = null;
+  imageName: string | null = null; // Variable pour stocker le nom de l'image
 
   constructor(
     private route: ActivatedRoute,
     private router: Router,
-    private productService: ProductService
+    private productService: ProductService,
+    private http: HttpClient
   ) {}
 
   ngOnInit(): void {
@@ -32,7 +36,40 @@ export class ProductDetailComponentAdmin implements OnInit {
       this.router.navigate(['/admin/products']);
     }
   }
+
+  onFileSelected(event: any): void {
+    this.selectedFile = event.target.files[0];
+  }
+
+  onUpload(): void {
+    if (!this.selectedFile) {
+      console.error('No file selected');
+      return;
+    }
+
+    const formData = new FormData();
+    formData.append('file', this.selectedFile, this.selectedFile.name);
+
+    this.http.post('http://localhost:8080/api/products/upload', formData, { responseType: 'text' })
+      .subscribe(
+        (response: string) => {
+          console.log('Image uploaded successfully:', response);
+          // Stocker le nom de l'image
+          this.imageName = response;
+        },
+        (error: HttpErrorResponse) => {
+          console.error('Error uploading image:', error);
+          // Gérer les erreurs de téléversement ici
+        }
+      );
+  }
+
   saveProduct(): void {
+    // Attribuer le nom de l'image au produit avant de le sauvegarder
+    if (this.imageName) {
+      this.product.image = this.imageName;
+    }
+
     console.log('Saving product:', this.product);
     if (this.isNewProduct) {
       this.productService.createProduct(this.product).subscribe(

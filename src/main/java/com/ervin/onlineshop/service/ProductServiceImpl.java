@@ -6,7 +6,12 @@ import com.ervin.onlineshop.repository.ProductRepository;
 import org.modelmapper.ModelMapper;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import org.springframework.web.multipart.MultipartFile;
 
+import java.io.File;
+import java.io.FileNotFoundException;
+import java.io.FileOutputStream;
+import java.io.IOException;
 import java.util.List;
 import java.util.Optional;
 import java.util.stream.Collectors;
@@ -66,9 +71,19 @@ public class ProductServiceImpl implements ProductService {
         // Enregistrer le produit dans la base de données
         Product savedProduct = productRepository.save(product);
 
+        // Récupérer le nom de l'image à partir du DTO
+        String imageName = product.getId() + "_" + productDTO.getImage(); // Utiliser l'ID du produit pour créer un nom d'image unique
+
+        // Mettre à jour le nom de l'image dans le produit
+        savedProduct.setImage(imageName);
+
+        // Enregistrer à nouveau le produit avec le nom de l'image mis à jour
+        savedProduct = productRepository.save(savedProduct);
+
         // Convertir et renvoyer le produit enregistré en DTO
         return modelMapper.map(savedProduct, ProductDTO.class);
     }
+
 
     @Override
     public ProductDTO updateProduct(Long id, ProductDTO productDTO) {
@@ -101,6 +116,24 @@ public class ProductServiceImpl implements ProductService {
     @Override
     public void deleteProduct(Long id) {
         productRepository.deleteById(id);
+    }
+
+    public String uploadImage(MultipartFile file) throws IOException {
+        // Obtiens le nom du fichier
+        String fileName = file.getOriginalFilename();
+        // Crée le chemin de stockage du fichier
+        String filePath = "C:\\Users\\ervin\\projet\\online-shop\\online-shop\\frontend-online-shop\\frontend-online-shop\\src\\assets\\sneakers\\" + fileName;
+
+        // Crée le fichier sur le système de fichiers
+        File imageFile = new File(filePath);
+        imageFile.createNewFile();
+
+        // Écris les données du fichier dans le fichier créé
+        FileOutputStream fos = new FileOutputStream(imageFile);
+        fos.write(file.getBytes());
+        fos.close();
+
+        return fileName;
     }
 
     // Autres méthodes à implémenter...
