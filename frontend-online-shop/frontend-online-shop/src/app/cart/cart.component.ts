@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { CartService } from '../services/cart.service';
 import { CartItem } from '../../models/cart-item';
+import { SharedCartService } from '../services/shared-cart.service';
 
 @Component({
   selector: 'app-cart',
@@ -9,18 +10,34 @@ import { CartItem } from '../../models/cart-item';
 })
 export class CartComponent implements OnInit {
   cartItems: CartItem[] = [];
+  cartItemCount: number = 0;
 
-  constructor(private cartService: CartService) { }
+  constructor(private cartService: CartService, private sharedCartService: SharedCartService) { }
 
   ngOnInit(): void {
-    this.cartService.getCartItems().subscribe(cartItems => {
+    this.sharedCartService.getCartItems().subscribe(cartItems => {
       this.cartItems = cartItems;
+      this.updateCartItemCount();
+    });
+
+    this.sharedCartService.getCartItemCount().subscribe(count => {
+      this.cartItemCount = count;
     });
   }
 
   removeFromCart(cartItem: CartItem): void {
     this.cartService.deleteCartItem(cartItem.id).subscribe(() => {
-      this.cartItems = this.cartItems.filter(item => item.id !== cartItem.id);
+      this.sharedCartService.removeCartItem(cartItem.id);
     });
+  }
+
+  updateCartItem(cartItem: CartItem): void {
+    this.cartService.addCartItem(cartItem).subscribe(() => {
+      this.sharedCartService.addCartItem(cartItem);
+    });
+  }
+
+  updateCartItemCount(): void {
+    this.cartItemCount = this.cartItems.reduce((total, item) => total + item.quantity, 0);
   }
 }
